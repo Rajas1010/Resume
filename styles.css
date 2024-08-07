@@ -1,13 +1,21 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html, body {
     overflow: hidden; /* Prevents scrollbars */
+    height: 100%;
+    margin: 0;
 }
 body {
-    margin: 0px 0px;
     padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
     background-color: #888888;
     font-family: "Lora", serif;
 }
