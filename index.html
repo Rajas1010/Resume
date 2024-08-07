@@ -186,6 +186,14 @@
         </div>
     </div>
 </body>
+<script>
+    function adjustContent() {
+        const wrapper = document.querySelector('.wrapper');
+        wrapper.style.marginTop = '0';
+    }
 
+    window.addEventListener('resize', adjustContent);
+    adjustContent();
+</script>
 
 </html>
