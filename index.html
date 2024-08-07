@@ -173,5 +173,11 @@
         </div>
     </div>
 </body>
-
+<script>
+    function adjustViewport() {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    }
+    window.addEventListener('resize', adjustViewport);
+    adjustViewport(); // Initial call
+</script>
 </html>
