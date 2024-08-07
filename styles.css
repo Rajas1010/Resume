@@ -1,3 +1,6 @@
+html, body {
+    overflow: hidden; /* Prevents scrollbars */
+}
 body {
     margin: 0px 0px;
     padding: 0px;
