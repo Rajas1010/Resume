@@ -8,6 +8,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  overflow: auto;
 }
 body {
   padding: 0px;
