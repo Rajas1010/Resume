@@ -27,7 +27,6 @@ a {
 .resume {
   width: 210mm; /* A4 width */
   height: 297mm; /* A4 height */
-  margin: 20px 0px;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
