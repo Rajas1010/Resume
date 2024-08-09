@@ -1,12 +1,10 @@
 
 body {
   margin: 0px;
-  padding:15px 0px;
+  padding: 20px 0px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: #888888;
+  background-color: #545454;
   font-family: "Lora", serif;
 }
 ul {
@@ -28,6 +26,9 @@ a {
   height: 297mm; /* A4 height */
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .top {
   display: flex;
