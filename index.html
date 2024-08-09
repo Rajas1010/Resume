@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable=yes>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" user-scalable=yes>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -11,9 +11,19 @@
         rel="stylesheet">
     <title>Resume</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function resizeWindow() {
+            // Get the screen width and calculate 67% of it
+            var screenWidth = window.screen.width;
+            var newWidth = screenWidth * 0.67;
+
+            // Resize the window to 67% of the screen width
+            window.resizeTo(newWidth, window.outerHeight);
+        }
+    </script>
 </head>
 
-<body>
+<body onload="resizeWindow()">
     <div class="fixed-bg"></div>
     <div class="resume">
         <div class="top">
@@ -187,14 +197,6 @@
         </div>
     </div>
 </body>
-<script>
-    function adjustContent() {
-        const wrapper = document.querySelector('.wrapper');
-        wrapper.style.marginTop = '0';
-    }
 
-    window.addEventListener('resize', adjustContent);
-    adjustContent();
-</script>
 
 </html>

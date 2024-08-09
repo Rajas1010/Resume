@@ -1,9 +1,10 @@
 
 body {
   margin: 0px;
+  padding:0px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: calc(100vh - 20px);
   width: 100%;
