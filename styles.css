@@ -1,5 +1,4 @@
-html,body{ padding: 20px 0px;
-}
+
 body {
   margin: 0px;
   display: flex;
@@ -7,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 20px);
- width: 100%;
+  width: 100%;
   background-color: #888888;
   font-family: "Lora", serif;
 }
