@@ -1,14 +1,25 @@
 body {
   margin: 0px;
-  padding: 20px 0px;
-  display: flex;
-  justify-content: center;
-  background-color: #545454;
+  padding: 0px;
+  background-color: black;
   font-family: "Lora", serif;
 }
-@media print{
-  body{padding:0px;}
+body > .resume{
+  padding: 20px 0px;
+  background: none;
 }
+@media print{
+  body > .resume{padding: 0px;}
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: relative;
+  top:0%;
+}
+
 ul {
   margin: 0px;
   padding: 0px 0px 0px 20px;
@@ -24,6 +35,11 @@ a {
 }
 
 .resume {
+  position: absolute;
+  top:0%;
+  left:50%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
   width: 210mm; /* A4 width */
   height: 297mm; /* A4 height */
   background-color: #ffffff;
@@ -31,7 +47,9 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
+
 .top {
   display: flex;
   width: 100%;
