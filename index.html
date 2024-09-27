@@ -3,19 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8" user-scalable=yes>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Color+Emoji&display=swap"
         rel="stylesheet">
     <title>Resume</title>
+    <link rel="icon" href="Icons/resumeIcon.png" type="image/svg+xml" >
     <link rel="stylesheet" href="styles.css">
+
+            
 </head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
 
 <body>
     <canvas id="network" style="position: fixed;"></canvas>
-    <div class="resume">
+    <div class="resume" id="resumeid" >
         <div class="top">
             <div class="left">
                 <div class="name">RAJASEKAR M</div>
@@ -43,11 +49,11 @@
             <div class="summary">
                 <div class="summarytitle">SUMMARY</div>
                 <div class="summaryline"></div>
-                <div class="summaryContent">
-                    Enthusiastic IT graduate with a strong passion for coding and problem-solving. Skilled in Java,
-                    Python, and MySQL.
-                    Seeking an entry-level software developer role to contribute to innovative projects and grow
-                    professionally
+                <div class="summaryContent" id="summaryContent">
+                    Enthusiastic IT graduate with a strong passion for <span id="passionContent">coding, problem-solving</span>. 
+        Skilled in <span id="skillsContent">Java, Python, MySQL</span>.
+
+        Seeking an entry-level <span id="jobRoleContent">software developer</span> role to contribute to innovative projects and grow professionally.
                 </div>
             </div>
             <div class="bottomContent">
@@ -68,7 +74,7 @@
                             <div>Diploma in Mechatronics.</div>
                             <div>2016-2019</div>
                             <div>Percentage: 77%</div>
-                            <div style="margin-bottom: 3px;">Specialization: Robotics, CAD/CAM, Microcontroller</div>
+                            <div style="margin-bottom: 3px;">Specialization: Robotics, CAD/CAM, μ Controller</div>
                         </div>
                         <div class="sclTitle">
                             Saliar Mahajana Higher Secondary School</div>
@@ -93,7 +99,7 @@
                     <div class="interests">
                         <div class="InterestTitle">INTERESTS</div>
                         <div class="IntUl"></div>
-                        <div class="IntContent">Problem Solving, Software Development,
+                        <div class="IntContent" id="interestContent">Problem Solving, Software Development,
                             Front-End Design, Data Analysis</div>
                     </div>
                     <div class="strengths">
@@ -104,9 +110,18 @@
                     <div class="links">
                         <div class="linkTitle">LINKS</div>
                         <div class="linkUl"></div>
-                        <div class="linkContent" style="padding-bottom: 0px;">
-                            <a href="https://github.com/Rajas1010">GitHub</a><span>&#8195</span>
-                            <a href="https://www.linkedin.com/in/rajas1010">LinkedIn</a>
+                        <div class="linkContent">
+                            <span class="githublink" >
+                                <img src="Icons/github.png" alt="" style="height: 15px;">&nbsp;
+                                <a href="https://www.github.com/Rajas1010" >GitHub</a>
+                                <p class="print-url">https://www.github.com/Rajas1010</p>
+                            </span>
+                            &emsp;
+                            <span class="linkedinlink" >
+                                <img src="Icons/linkedin.png" alt="" style="height: 15px;">&nbsp
+                                <a href="https://linkedin.com/in/Rajas1010">LinkedIn</a>
+                                <p class="print-url">https://linkedin.com/in/Rajas1010</p>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -118,7 +133,6 @@
                         <div class="workName">Machine Operator & Assembler</div>
                         <div class="companyName">KJK Meister Honen Pvt Ltd | 2019 - 2021</div>
                         <div class="workDes">
-
                             <div>• &nbsp;Specialized in manufacturing honing tools</div>
                             <div>• &nbsp;Focus on accuracy and safety</div>
 
@@ -135,10 +149,10 @@
 
                             <div>• &nbsp;Implemented deep learning-based recovery for lost bio-signal data.</div>
                             <div>• &nbsp;Integrated arrhythmia detection for early diagnosis in healthcare.</div>
-                            <div>• &nbsp;<a
-                                    href="https://github.com/Rajas1010/DEEP-LEARNING-BASED-BIOLOGICAL-SIGNAL-STEGANOGRAPHY-WITH-MISSING-DATA-RECOVERY-APPROACH">Github
-                                    Link | Deep Learning-Based Bio-Signal Recovery</a></div>
-
+                            <div class="projectLink">• &nbsp;
+                                <a href="https://github.com/Rajas1010/DEEP-LEARNING-BASED-BIOLOGICAL-SIGNAL-STEGANOGRAPHY-WITH-MISSING-DATA-RECOVERY-APPROACH">Github Link | Deep Learning-Based Bio-Signal Recovery</a>
+                                <span class="print-url">Github Link | https://github.com/Rajas1010/&#10216; Project Title &#10217;</span>
+                            </div>
                         </div>
 
                         <div class="projectName">Secret Sharing Based on CRT, Cryptography Project</div>
@@ -147,24 +161,26 @@
 
                             <div>• &nbsp;Secured medical image transmission with CRT-based secret sharing.</div>
                             <div>• &nbsp;Experienced with Xception for medical image disease identification.</div>
-                            <div>• &nbsp;<a href="https://github.com/Rajas1010/CRYPTO-DL">Github Link | Secret Sharing
-                                    Based on CRT</a></div>
-
-                        </div>
+                            <div class="projectLink">• &nbsp;
+                                <a href="https://github.com/Rajas1010/CRYPTO-DL">Github Link | Secret Sharing Based on CRT</a>
+                                <span class="print-url">Github Link | https://github.com/Rajas1010/CRYPTO-DL</span></div>
+                            </div>
                         <div class="projectName">RCB Lap Showroom, Java Mini Project</div>
                         <div class="projectYear">JANUARY 2022 - MAY 2022 &nbsp[4<sup>th</sup> sem Mini project]</div>
                         <div class="projectDes">
 
                             <div>• &nbsp;Admin tasks: add, update, and remove laptops using SQL database.</div>
                             <div>• &nbsp;Customer features: bill generation, laptop details, image showcasing.</div>
-                            <div>• &nbsp;<a href="https://github.com/Rajas1010/RCB-Lap-World">Github Link | RCB Lap
-                                    Showroom</a></div>
+                            <div class="projectLink">• &nbsp;
+                                <a href="https://github.com/Rajas1010/RCB-Lap-World">Github Link | RCB Lap Showroom</a>
+                                <span class="print-url">Github Link | https://github.com/Rajas1010/RCB-Lap-World</span>
+                            </div>
 
                         </div>
                     </div>
                     <div class="certificates">
                         <div class="CertificateTitle">CERTIFICATES</div>
-                        <div class="CertificateUl"></div>
+                        <div class="CertificateUl" ></div>
                         <div class="CertificateName">Introduction of Internet of Things, NPTEL</div>
                         <div class="CertificateYear">JANUARY-APRIL 2022 | Score: 60%</div>
                         <div class="CertificateName">Data Structures and Algorithms in Java, NPTEL</div>
@@ -174,20 +190,105 @@
                     <div class="awards">
                         <div class="awardTitle">AWARDS</div>
                         <div class="awardUl"></div>
-                        <div class="awardName">Best Mini-Project Award in Cryptography Algorithms</div>
-                        <div class="awardYear" style="margin-bottom: 3px;">Institution of Engineers (IT) competition in
-                            MEPCO college, 5th semester</div>
-                        <div class="awardName">Best Mini-Project Award in Machine Learning</div>
-                        <div class="awardYear" style="padding-bottom: 0px;">Institution of Engineers (IT) competition in MEPCO college, 6th semester
+                        <div class="awardName">Best Mini-Project Award in Cryptography & ML</div>
+                        <div class="awardYear" style="padding-bottom: 0px;">Institution of Engineers (IT) competition, MEPCO college, 5th & 6th sem.
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+
+    <button id="edit-btn" onclick="opttoggleVisibility('edit-options')">Resume</button>
+
+    <div class="container" id="edit-options">
+
+        <div class="btn-container">
+          <div class="btn">
+                  <label id="pdfbtnlbl"><input type="checkbox" id="printToggle">&#8201;Download Pdf</label>
+          </div>
+        </div>
+  
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('expertise-options')">Expertise</div>
+            <div class="sub-button-container">
+              <ul id="expertise-options" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="Java" class="expertiseCheckbox"> Java</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaEE" class="expertiseCheckbox"> JavaEE</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Python" class="expertiseCheckbox"> Python</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="DSA" class="expertiseCheckbox"> DSA</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="OOPS" class="expertiseCheckbox"> OOPS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="MySQL" class="expertiseCheckbox"> MySQL</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Excel" class="expertiseCheckbox"> Excel</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Git" class="expertiseCheckbox"> Git</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="HTML" class="expertiseCheckbox"> HTML</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="CSS" class="expertiseCheckbox"> CSS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="expertiseCheckbox"> JavaScript</label></li>
+            </ul>
+            </div>
+          </div>
+  
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('interestOptions')">Interests</div>
+            <div class="sub-button-container">
+              <ul id="interestOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="Problem Solving" class="interestCheckbox"> Problem Solving</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Software Development" class="interestCheckbox"> Software Development</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Front-End Design" class="interestCheckbox"> Front-End Design</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Data Analysis" class="interestCheckbox"> Data Analysis</label></li>
+            </ul>
+            </div>
+          </div>
+  
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('passionOptions')">Passion</div>
+            <div class="sub-button-container">
+              <ul id="passionOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="coding" class="passionCheckbox"> Coding</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="problem solving" class="passionCheckbox"> Problem Solving</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="front-end Design" class="passionCheckbox"> Front-End Design</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="back-end development" class="passionCheckbox"> Back-End Development</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="user interface design" class="passionCheckbox"> User Interface Design</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="web development" class="passionCheckbox"> Web Development</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="data interpretation" class="passionCheckbox"> Data Interpretation</label></li>
+            </ul>
+            </div>
+          </div>
+  
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('skillsOptions')">Skills</div>
+            <div class="sub-button-container">
+              <ul id="skillsOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="Java" class="skillsCheckbox"> Java</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaEE" class="skillsCheckbox"> JavaEE</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Python" class="skillsCheckbox"> Python</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="DSA" class="skillsCheckbox"> DSA</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="OOPS" class="skillsCheckbox"> OOPS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="MySQL" class="skillsCheckbox"> MySQL</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Excel" class="skillsCheckbox"> Excel</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Git" class="skillsCheckbox"> Git</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="HTML" class="skillsCheckbox"> HTML</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="CSS" class="skillsCheckbox"> CSS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="skillsCheckbox"> JavaScript</label></li>
+            </ul>
+            </div>
+          </div>
+  
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('jobRoleOptions')">Job Role</div>
+            <div class="sub-button-container">
+              <ul id="jobRoleOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="software developer" class="jobRoleCheckbox"> Software Developer</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="front-end developer" class="jobRoleCheckbox"> Front-End Developer</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="full stack developer" class="jobRoleCheckbox"> Full Stack Developer</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="data analyst" class="jobRoleCheckbox"> Data Analyst</label></li>
+            </ul>
+            </div>
+          </div>
+      
+        </div>
+
     <script src="script.js"></script>
+
 </body>
-
-
 </html>

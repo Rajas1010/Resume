@@ -7,7 +7,16 @@ const nodes = [];
 const nodeCount = 200;
 const maxDistance = 100;
 const groupCount = 100;
+const printToggle = document.getElementById('printToggle');
+const body = document.body;
 
+printToggle.addEventListener('change', function() {
+    if (this.checked) {
+        body.classList.add('no-print-mode');
+    } else {
+        body.classList.remove('no-print-mode');
+    }
+});
 
 function calculateColor(x, y) {
     const r = Math.round(172 + (x / canvas.width) * (35 - 172));
@@ -102,3 +111,70 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+
+        
+function toggleVisibility(id) {
+    const options = document.getElementById(id);
+    options.style.display = options.style.display === 'none' ? 'block' : 'none';
+}
+const selectionOrder = {
+    expertise: [],
+    interest: [],
+    passion: [],
+    skills: [],
+    jobRole: []
+};
+function updateContent(category, contentSelector, prefix, suffix) {
+    const checkboxes = document.querySelectorAll(`.${category}Checkbox`);
+    const selectedValues = [];
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const value = checkbox.value;
+            if (!selectionOrder[category].includes(value)) {
+                selectionOrder[category].push(value);
+            }
+        } else {
+            const index = selectionOrder[category].indexOf(checkbox.value);
+            if (index > -1) {
+                selectionOrder[category].splice(index, 1);
+            }
+        }
+    });
+
+    const updatedContent = selectionOrder[category].length > 1 
+        ? selectionOrder[category].slice(0, -1).join(', ') + ' and ' + selectionOrder[category].slice(-1)
+        : selectionOrder[category][0] || '';
+
+    document.querySelector(contentSelector).textContent = `${prefix}${updatedContent}${suffix}`;
+}
+
+document.querySelectorAll('.expertiseCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('expertise', '.expertiseContent', '', ''));
+});
+
+document.querySelectorAll('.interestCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('interest', '#interestContent', '', ''));
+});
+
+document.querySelectorAll('.passionCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('passion', '#passionContent', '', ''));
+});
+
+document.querySelectorAll('.skillsCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('skills', '#skillsContent','', ''));
+});
+
+document.querySelectorAll('.jobRoleCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('jobRole', '#jobRoleContent', '', ''));
+});
+
+function opttoggleVisibility(id) {
+    document.getElementById('edit-btn').addEventListener('click', function(event) {
+        if (event.detail === 3) {
+            const options = document.getElementById(id);
+            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+        }
+    });
+}
