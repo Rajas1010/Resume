@@ -563,3 +563,76 @@ ul:nth-child(5) {
 ul:last-child {
   z-index: 5;
 }
+/* ===================== RESPONSIVE HEADING BEHAVIOUR ===================== */
+
+/*
+  On desktop the resume card is 210mm (≈794px) wide, centred on the page.
+  The #edit-btn sits fixed at top-left. As long as there is space to the
+  left of the card the button floats over the background and never overlaps
+  the white card — no change needed.
+
+  When the viewport gets narrow enough that the card fills the full width
+  (≤ 900px in our fixed-viewport setup), the button would sit on top of
+  the card. We switch to a stacked layout:
+    • body becomes a flex column
+    • #edit-btn leaves fixed positioning and sits as a normal block at the top
+    • .resume follows below with a small gap
+*/
+
+@media screen and (max-width: 900px) {
+
+  /* Stack page vertically */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  /* Canvas: fixed behind everything, out of flex flow */
+  canvas {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1;
+    order: 0;
+  }
+
+  /* Heading: first in visual order */
+  #edit-btn {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 10px 0 0 10px;
+    flex-shrink: 0;
+    z-index: 100;
+    order: 1;
+  }
+
+  /* Edit options panel: right below heading */
+  #edit-options {
+    position: relative;
+    margin-top: 4px;
+    margin-left: 10px;
+    flex-shrink: 0;
+    z-index: 100;
+    order: 2;
+  }
+
+  /* Resume card: below the heading */
+  body > .resume {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    align-self: center;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 210mm;
+    padding: 0;
+    order: 3;
+  }
+}
