@@ -11,9 +11,647 @@
         rel="stylesheet">
     <title>Resume</title>
     <link rel="icon" href="Icons/resumeIcon.png" type="image/svg+xml" >
-    <link rel="stylesheet" href="styles.css">
+    <style>
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  font-family: "Lora", serif;
+  
+}
+body > .resume{
+  padding: 20px 0px;
+  background: none;
+  
+}
 
-            
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: relative;
+  top:0%;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px 0px 0px 20px;
+}
+.workDes > *,
+.projectDes > * {
+  font-size: 76%;
+  padding: 0px 0px 5px 3px;
+}
+a {
+  color: inherit;
+  text-decoration: underline rgba(84, 84, 84, 0.8) 0.5px;
+}
+
+.resume {
+  position: absolute;
+  top:0%;
+  left:50%;
+  transform: translate(-50%, 0%);
+  z-index: 10;
+  width: 100%;
+  max-width: 210mm; /* A4 width */
+  height: 297mm; /* A4 height */
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+@media screen and (max-width: 780px) {
+  .resume > *{
+    transform: scale(0.9);
+    transform-box: content-box;
+  }
+}
+
+.top {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 50px;
+}
+.name {
+  font-size: 250%;
+}
+.nameUnderscore {
+  width: 350px;
+  height: 1px;
+  margin: 5px 0px;
+  background-color: #5f5e5e;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+}
+.about {
+  font-size: 100%;
+  padding-top: 7px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  align-items: flex-end;
+  padding-right: 50px;
+  justify-content: center;
+  font-size: 120%;
+}
+.phbox,
+.mailbox,
+.homebox {
+  display: flex;
+  align-items: center;
+}
+.phNo,
+.mail,
+.home {
+  padding: 10px 0px;
+}
+
+.HorLine {
+  width: 100%;
+  height: 2.0mm;
+  background-color: #545454;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.bottom {
+  width: 100%;
+  height: 913px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding-top: 20px;
+}
+.summaryline {
+  width: 350px;
+  height: 1px;
+  background-color: #5f5e5e;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  margin: 3px 0px 10px 0px;
+}
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.summarytitle {
+  font-size: 150%;
+  letter-spacing: 2px;
+}
+.summaryContent {
+  padding: 0px 35px;
+  font-size: 85%;
+  text-align: center;
+}
+.bottomContent {
+  display: flex;
+  padding: 20px 30px 0px 50px;
+}
+.bottomleft {
+  display: flex;
+  width: 41%;
+  flex-direction: column;
+}
+.bottomleft > * {
+  margin-bottom: 5px;
+}
+
+.education {
+  margin-bottom: 5px;
+}
+.eduTitle,
+.expertiseTitle,
+.LangTitle,
+.InterestTitle,
+.stnTitle,
+.linkTitle,
+.workTitle,
+.projectTitle,
+.CertificateTitle,
+.awardTitle {
+  font-size: 130%;
+  letter-spacing: 2px;
+}
+.eduUnderline,
+.expertiseUl,
+.LangUl,
+.IntUl,
+.stnUl,
+.linkUl,
+.workUl,
+.projectUl,
+.CertificateUl,
+.awardUl {
+  width: 200px;
+  height: 0.5px;
+  background-color: #5f5e5e;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  margin: 5px 0px 12px 0px;
+}
+.workUl,
+.projectUl,
+.CertificateUl,
+.awardUl {
+  width: 300px;
+}
+.mepcoTitle,
+.gptTitle,
+.sclTitle,
+.workName,
+.projectName,
+.CertificateName,
+.awardName {
+  font-size: 80%;
+  font-weight: bold;
+  opacity: 90%;
+  letter-spacing: 0.5px;
+  padding-bottom: 4px;
+}
+.mepcoContent,
+.gptContent,
+.sclContent {
+  letter-spacing: 0.2px;
+  font-size: 70%;
+  padding-bottom: 5px;
+  line-height: 18px;
+}
+.companyName,
+.projectYear,
+.CertificateYear,
+.awardYear {
+  letter-spacing: 0.3px;
+  font-size: 70%;
+  padding: 0px 0px 4px 5px;
+  line-height: 17px;
+}
+.expertiseContent,
+.LangContent,
+.IntContent,
+.stnContent,
+.linkContent a {
+  letter-spacing: 0.3px;
+  font-size: 81%;
+  font-weight: bold;
+  opacity: 75%;
+  padding-bottom: 10px;
+}
+.verticalLine {
+  display: flex;
+  justify-content: center;
+  height: 700px;
+  width: 1px;
+  margin: 20px 10px 10px 10px;
+  background-color: #545454;
+}
+
+.bottomright {
+  display: flex;
+  width: 59%;
+  flex-direction: column;
+}
+.work,
+.project,
+.certificates {
+  margin-bottom: 5px;
+}
+
+.githublink,
+.linkedinlink{
+display: inline-flex;
+}
+.print-url {
+  display: none;
+}
+
+@media print{
+  #printToggle,#edit-options,#edit-btn{
+    display: none;
+  }
+  body > .resume{
+    padding: 0;
+  }
+
+  body:not(.no-print-mode) a {
+    display: none; 
+  }
+
+  body:not(.no-print-mode) .print-url{
+  display: inline-flex;
+  padding-bottom: 3px;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  font-size: 81%;
+  font-weight: bold;
+  opacity: 75%;
+  margin: 0px;
+  }
+  
+body:not(.no-print-mode) .expertiseContent,
+body:not(.no-print-mode) .LangContent,
+body:not(.no-print-mode) .IntContent,
+body:not(.no-print-mode) .stnContent,
+body:not(.no-print-mode) .linkContent a {
+  padding-bottom: 5px;
+}
+
+#printToggle {
+  display: none;
+}
+}
+
+#edit-btn {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  color: #f0f0f0; 
+  background: rgba(0, 0, 0, 0.5); 
+  border: none; 
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+  margin-left: 10px;
+  user-select: none;
+}
+
+#edit-btn:before {
+  background-color: #ff00ffc7;
+  border-radius: 0.25rem;
+  content: '';
+  display: block;
+  height: 0.25rem;
+  width: 42px;
+  margin-top: 10px;
+  margin-bottom: 0.8rem; 
+}
+#edit-options{
+  display: none;
+  position: fixed;
+  margin-top: 80px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.container {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  position: relative;
+  margin: 0;
+  user-select: none;
+}
+.btn-container {
+  position: relative;
+  width: 150px;
+  margin-bottom: 2px;
+}
+.btn {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  background-color: #222222;
+  color: white;
+  line-height: 40px;
+  padding-left: 20px;
+  transition: width 0.3s cubic-bezier(1, .01, .26, 1.9), background-color 0.3s cubic-bezier(1, .01, .26, 1.9);
+  z-index: 9;
+}
+.btn-container .btn:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  top: 0;
+  left: 0;
+}
+.btn label{
+  display:inline-flex;
+  width: 150px;
+  align-items: stretch;
+}
+.btn:hover label{
+  width: 150px;
+}
+
+.btn-container:first-child .btn:before,.btn-container:first-child .sub-button:after,
+.btn-container:first-child:hover > .btn + .sub-button-container > ul .sub-button:hover,
+.btn-container:first-child:hover > .btn {
+  background-color: #BE4C39;
+}
+
+.btn-container:nth-child(2) .btn:before,.btn-container:nth-child(2) .sub-button:after,
+.btn-container:nth-child(2):hover > .btn + .sub-button-container > ul .sub-button:hover,
+.btn-container:nth-child(2):hover > .btn {
+  background-color: #9351A6;
+}
+
+.btn-container:nth-child(3) .btn:before,.btn-container:nth-child(3) .sub-button:after,
+.btn-container:nth-child(3):hover > .btn + .sub-button-container > ul .sub-button:hover,
+.btn-container:nth-child(3):hover > .btn {
+  background-color: #E18728;
+}
+.btn-container:nth-child(4) .btn:before,.btn-container:nth-child(4) .sub-button:after,
+.btn-container:nth-child(4):hover > .btn + .sub-button-container > ul .sub-button:hover,
+.btn-container:nth-child(4):hover > .btn {
+  background-color: #1e90ff;
+}
+
+.btn-container:nth-child(5) .btn:before,.btn-container:nth-child(5) .sub-button:after,
+.btn-container:nth-child(5):hover > .btn + .sub-button-container > ul .sub-button:hover,
+.btn-container:nth-child(5):hover > .btn {
+  background-color: #6a5acd;
+}
+.btn-container:last-child .btn:before,.btn-container:last-child .sub-button:after,
+.btn-container:last-child:hover > .btn + .sub-button-container > ul .sub-button:hover,
+.btn-container:last-child:hover > .btn {
+  background-color: #3cb371;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  right: -60px;
+  border-left: 60px solid #222222;
+  border-bottom: 40px solid transparent;
+  transition: border-left-color 0.3s cubic-bezier(1, .01, .26, 1.9);
+}
+
+.container ul {
+  position: absolute;
+  top: 0px;
+  left: 189px;
+  list-style: none;
+  transition: left 0.3s cubic-bezier(1, .01, .26, 1.9);
+}
+
+.sub-button {
+  position: relative;
+  width: 220px;
+  height: 40px;
+  padding-left: 10px;
+  background-color: #333333;
+  color: white;
+  line-height: 40px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s cubic-bezier(1, .01, .26, 1.9);
+  display: none;
+  margin-bottom: 2px;
+}
+
+.sub-button:first-child:before {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: -60px;
+  border-right: 60px solid #333333;
+  border-top: 40px solid transparent;
+  transition: border-right-color 0.3s cubic-bezier(1, .01, .26, 1.9);
+}
+
+.sub-button:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  top: 0;
+  right: 0;
+}
+.sub-button label{
+  display:flex;
+  align-items: stretch;
+}
+
+.btn-container:first-child:hover > .btn,
+.btn-container:nth-child(2):hover > .btn,
+.btn-container:nth-child(3):hover > .btn,
+.btn-container:nth-child(4):hover > .btn,
+.btn-container:nth-child(5):hover > .btn,
+.btn-container:last-child:hover > .btn {
+  width: 160px;
+}
+
+.btn-container:first-child:hover > .btn + .sub-button-container > ul,
+.btn-container:nth-child(2):hover > .btn + .sub-button-container > ul,
+.btn-container:nth-child(3):hover > .btn + .sub-button-container > ul,
+.btn-container:nth-child(4):hover > .btn + .sub-button-container > ul,
+.btn-container:nth-child(5):hover > .btn + .sub-button-container > ul,
+.btn-container:last-child:hover > .btn + .sub-button-container > ul {
+  left: 210px;
+}
+
+.btn-container:first-child:hover > .btn + .sub-button-container > ul .sub-button,
+.btn-container:nth-child(2):hover > .btn + .sub-button-container > ul .sub-button,
+.btn-container:nth-child(3):hover > .btn + .sub-button-container > ul .sub-button,
+.btn-container:nth-child(4):hover > .btn + .sub-button-container > ul .sub-button,
+.btn-container:nth-child(5):hover > .btn + .sub-button-container > ul .sub-button,
+.btn-container:last-child:hover > .btn + .sub-button-container > ul .sub-button{
+  display: block;
+}
+
+.btn-container:first-child:hover > .btn:after {
+  border-left-color: #BE4C39;
+}
+
+.btn-container:first-child:hover > .btn + .sub-button-container > ul .sub-button:hover:before {
+  border-right-color: #BE4C39;
+}
+
+.btn-container:nth-child(2):hover > .btn:after {
+  border-left-color: #9351A6;
+}
+
+.btn-container:nth-child(2):hover > .btn + .sub-button-container > ul .sub-button:hover:before {
+  border-right-color: #9351A6;
+}
+
+.btn-container:nth-child(3):hover > .btn:after {
+  border-left-color: #E18728;
+}
+
+.btn-container:nth-child(3):hover > .btn + .sub-button-container > ul .sub-button:hover:before {
+  border-right-color: #E18728;
+}
+
+.btn-container:nth-child(4):hover > .btn:after {
+  border-left-color: #1e90ff;
+}
+
+.btn-container:nth-child(4):hover > .btn + .sub-button-container > ul .sub-button:hover:before {
+  border-right-color: #1e90ff;
+}
+
+.btn-container:nth-child(5):hover > .btn:after {
+  border-left-color: #6a5acd;
+}
+
+.btn-container:nth-child(5):hover > .btn + .sub-button-container > ul .sub-button:hover:before {
+  border-right-color: #6a5acd;
+}
+
+.btn-container:last-child:hover > .btn:after {
+  border-left-color: #3cb371;
+}
+
+.btn-container:last-child:hover > .btn + .sub-button-container > ul .sub-button:hover:before {
+  border-right-color: #3cb371;
+}
+
+ul:first-child {
+  z-index: 0;
+}
+
+ul:nth-child(2) {
+  z-index: 1;
+}
+
+ul:nth-child(3) {
+  z-index: 2;
+}
+ul:nth-child(4) {
+  z-index: 3;
+}
+
+ul:nth-child(5) {
+  z-index: 4
+}
+
+ul:last-child {
+  z-index: 5;
+}
+/* ===================== RESPONSIVE HEADING BEHAVIOUR ===================== */
+
+/*
+  On desktop the resume card is 210mm (≈794px) wide, centred on the page.
+  The #edit-btn sits fixed at top-left. As long as there is space to the
+  left of the card the button floats over the background and never overlaps
+  the white card — no change needed.
+
+  When the viewport gets narrow enough that the card fills the full width
+  (≤ 900px in our fixed-viewport setup), the button would sit on top of
+  the card. We switch to a stacked layout:
+    • body becomes a flex column
+    • #edit-btn leaves fixed positioning and sits as a normal block at the top
+    • .resume follows below with a small gap
+*/
+
+@media screen and (max-width: 900px) {
+
+  /* Stack page vertically */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  /* Canvas: fixed behind everything, out of flex flow */
+  canvas {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1;
+    order: 0;
+  }
+
+  /* Heading: first in visual order */
+  #edit-btn {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 10px 0 0 10px;
+    flex-shrink: 0;
+    z-index: 100;
+    order: 1;
+  }
+
+  /* Edit options panel: right below heading */
+  #edit-options {
+    position: relative;
+    margin-top: 4px;
+    margin-left: 10px;
+    flex-shrink: 0;
+    z-index: 100;
+    order: 2;
+  }
+
+  /* Resume card: below the heading */
+  body > .resume {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    align-self: center;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 210mm;
+    padding: 0;
+    order: 3;
+  }
+}
+
+    </style>
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -130,12 +768,15 @@
                     <div class="work">
                         <div class="workTitle">WORK EXPERIENCE</div>
                         <div class="workUl"></div>
+                        <div class="workName">Associate Engineer, Development</div>
+                        <div class="companyName">Aptean, Madurai | Nov 2024 - Present &nbsp;[Intern: Nov 2024 - May 2025]</div>
+                        <div class="workDes">
+                            <div>• &nbsp;Customized and developed the Produce Pro ERP for Purchasing, Inventory management, Sales, WMS and EDI using DBC.</div>
+                        </div>
                         <div class="workName">Machine Operator & Assembler</div>
                         <div class="companyName">KJK Meister Honen Pvt Ltd | 2019 - 2021</div>
                         <div class="workDes">
-                            <div>• &nbsp;Specialized in manufacturing honing tools</div>
-                            <div>• &nbsp;Focus on accuracy and safety</div>
-
+                            <div>• &nbsp;Manufactured honing tools with a focus on accuracy and safety.</div>
                         </div>
                     </div>
                     <div class="project">
@@ -147,8 +788,7 @@
                         </div>
                         <div class="projectDes" style="margin-bottom:10px;">
 
-                            <div>• &nbsp;Implemented deep learning-based recovery for lost bio-signal data.</div>
-                            <div>• &nbsp;Integrated arrhythmia detection for early diagnosis in healthcare.</div>
+                            <div>• &nbsp;Recovered lost bio-signal data and detected arrhythmia using deep learning.</div>
                             <div class="projectLink">• &nbsp;
                                 <a href="https://github.com/Rajas1010/DEEP-LEARNING-BASED-BIOLOGICAL-SIGNAL-STEGANOGRAPHY-WITH-MISSING-DATA-RECOVERY-APPROACH">Github Link | Deep Learning-Based Bio-Signal Recovery</a>
                                 <span class="print-url">Github Link | https://github.com/Rajas1010/&#10216; Project Title &#10217;</span>
@@ -159,8 +799,7 @@
                         <div class="projectYear">JANUARY 2023 - MAY 2023 &nbsp[6<sup>th</sup> sem Mini project]</div>
                         <div class="projectDes" style="margin-bottom:10px;">
 
-                            <div>• &nbsp;Secured medical image transmission with CRT-based secret sharing.</div>
-                            <div>• &nbsp;Experienced with Xception for medical image disease identification.</div>
+                            <div>• &nbsp;Secured medical image transmission using CRT-based secret sharing.</div>
                             <div class="projectLink">• &nbsp;
                                 <a href="https://github.com/Rajas1010/CRYPTO-DL">Github Link | Secret Sharing Based on CRT</a>
                                 <span class="print-url">Github Link | https://github.com/Rajas1010/CRYPTO-DL</span></div>
@@ -169,8 +808,7 @@
                         <div class="projectYear">JANUARY 2022 - MAY 2022 &nbsp[4<sup>th</sup> sem Mini project]</div>
                         <div class="projectDes">
 
-                            <div>• &nbsp;Admin tasks: add, update, and remove laptops using SQL database.</div>
-                            <div>• &nbsp;Customer features: bill generation, laptop details, image showcasing.</div>
+                            <div>• &nbsp;Built SQL-based laptop management with billing and product details.</div>
                             <div class="projectLink">• &nbsp;
                                 <a href="https://github.com/Rajas1010/RCB-Lap-World">Github Link | RCB Lap Showroom</a>
                                 <span class="print-url">Github Link | https://github.com/Rajas1010/RCB-Lap-World</span>
@@ -224,6 +862,7 @@
                 <li class="sub-button"><label><input type="checkbox" value="HTML" class="expertiseCheckbox"> HTML</label></li>
                 <li class="sub-button"><label><input type="checkbox" value="CSS" class="expertiseCheckbox"> CSS</label></li>
                 <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="expertiseCheckbox"> JavaScript</label></li>
+		<li class="sub-button"><label><input type="checkbox" value="DBC" class="expertiseCheckbox"> DBC</label></li>
             </ul>
             </div>
           </div>
@@ -270,6 +909,7 @@
                 <li class="sub-button"><label><input type="checkbox" value="HTML" class="skillsCheckbox"> HTML</label></li>
                 <li class="sub-button"><label><input type="checkbox" value="CSS" class="skillsCheckbox"> CSS</label></li>
                 <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="skillsCheckbox"> JavaScript</label></li>
+		<li class="sub-button"><label><input type="checkbox" value="DBC" class="skillsCheckbox"> DBC</label></li>
             </ul>
             </div>
           </div>
@@ -288,7 +928,188 @@
       
         </div>
 
-    <script src="script.js"></script>
+    <script>
+const canvas = document.getElementById('network');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const nodes = [];
+const nodeCount = 200;
+const maxDistance = 100;
+const groupCount = 100;
+const printToggle = document.getElementById('printToggle');
+const body = document.body;
+
+printToggle.addEventListener('change', function() {
+    if (this.checked) {
+        body.classList.add('no-print-mode');
+    } else {
+        body.classList.remove('no-print-mode');
+    }
+});
+
+function calculateColor(x, y) {
+    const r = Math.round(172 + (x / canvas.width) * (35 - 172));
+    const g = Math.round(30 + (y / canvas.height) * (251 - 30));
+    const b = Math.round(255 + (x / canvas.width) * (224 - 255));
+    
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+class Node {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.z = Math.random();  
+        this.dx = (Math.random() - 0.5) * 2; 
+        this.dy = (Math.random() - 0.5) * 2; 
+    }
+
+    update() {
+        this.x += this.dx * this.z;  
+        this.y += this.dy * this.z;  
+        if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+
+        this.draw();
+    }
+
+    draw() {
+        const radius = 4 * this.z + 1; 
+        const opacity = this.z;
+        const color = calculateColor(this.x, this.y);
+        const highlightRadius = radius * 0.2;
+        const gradient = ctx.createRadialGradient(this.x, this.y, highlightRadius * 0.3, this.x, this.y, radius);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.4})`);
+        gradient.addColorStop(0.5, `rgba(${color.slice(4, -1)}, ${opacity})`);
+        gradient.addColorStop(1, `rgba(${color.slice(4, -1)}, 0)`);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+    }
+}
+
+function drawConnections() {
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+            if (dist < maxDistance) {
+                const color1 = calculateColor(nodes[i].x, nodes[i].y);
+                const color2 = calculateColor(nodes[j].x, nodes[j].y);
+
+                const gradient = ctx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+                gradient.addColorStop(0, color1);
+                gradient.addColorStop(1, color2);
+
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.strokeStyle = gradient;
+                ctx.globalAlpha = 0.5;
+                ctx.stroke();
+            }
+        }
+    }
+    ctx.globalAlpha = 1;
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawConnections();
+    nodes.forEach(node => node.update());
+    requestAnimationFrame(animate);
+}
+
+for (let g = 0; g < groupCount; g++) {
+    const groupX = Math.random() * canvas.width;
+    const groupY = Math.random() * canvas.height;
+
+    for (let i = 0; i < nodeCount / groupCount; i++) {
+        nodes.push(new Node(
+            groupX + Math.random() * 100 - 50,
+            groupY + Math.random() * 100 - 50
+        ));
+    }
+}
+
+animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+
+        
+function toggleVisibility(id) {
+    const options = document.getElementById(id);
+    options.style.display = options.style.display === 'none' ? 'block' : 'none';
+}
+const selectionOrder = {
+    expertise: [],
+    interest: [],
+    passion: [],
+    skills: [],
+    jobRole: []
+};
+function updateContent(category, contentSelector, prefix, suffix) {
+    const checkboxes = document.querySelectorAll(`.${category}Checkbox`);
+    const selectedValues = [];
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const value = checkbox.value;
+            if (!selectionOrder[category].includes(value)) {
+                selectionOrder[category].push(value);
+            }
+        } else {
+            const index = selectionOrder[category].indexOf(checkbox.value);
+            if (index > -1) {
+                selectionOrder[category].splice(index, 1);
+            }
+        }
+    });
+
+    const updatedContent = selectionOrder[category].length > 1 
+        ? selectionOrder[category].slice(0, -1).join(', ') + ' and ' + selectionOrder[category].slice(-1)
+        : selectionOrder[category][0] || '';
+
+    document.querySelector(contentSelector).textContent = `${prefix}${updatedContent}${suffix}`;
+}
+
+document.querySelectorAll('.expertiseCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('expertise', '.expertiseContent', '', ''));
+});
+
+document.querySelectorAll('.interestCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('interest', '#interestContent', '', ''));
+});
+
+document.querySelectorAll('.passionCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('passion', '#passionContent', '', ''));
+});
+
+document.querySelectorAll('.skillsCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('skills', '#skillsContent','', ''));
+});
+
+document.querySelectorAll('.jobRoleCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', () => updateContent('jobRole', '#jobRoleContent', '', ''));
+});
+
+function opttoggleVisibility(id) {
+    document.getElementById('edit-btn').addEventListener('click', function(event) {
+        if (event.detail === 3) {
+            const options = document.getElementById(id);
+            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+        }
+    });
+}
+    </script>
 
 </body>
 </html>
