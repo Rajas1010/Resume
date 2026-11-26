@@ -665,6 +665,98 @@ ul:last-child {
 
 <body>
     <canvas id="network" style="position: fixed;"></canvas>
+
+    <button id="edit-btn" onclick="opttoggleVisibility('edit-options')">Resume</button>
+
+    <div class="container" id="edit-options">
+
+        <div class="btn-container">
+          <div class="btn">
+                  <label id="pdfbtnlbl"><input type="checkbox" id="printToggle">&#8201;Download Pdf</label>
+          </div>
+        </div>
+
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('expertise-options')">Expertise</div>
+            <div class="sub-button-container">
+              <ul id="expertise-options" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="Java" class="expertiseCheckbox"> Java</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaEE" class="expertiseCheckbox"> JavaEE</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Python" class="expertiseCheckbox"> Python</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="DSA" class="expertiseCheckbox"> DSA</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="OOPS" class="expertiseCheckbox"> OOPS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="MySQL" class="expertiseCheckbox"> MySQL</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Excel" class="expertiseCheckbox"> Excel</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Git" class="expertiseCheckbox"> Git</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="HTML" class="expertiseCheckbox"> HTML</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="CSS" class="expertiseCheckbox"> CSS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="expertiseCheckbox"> JavaScript</label></li>
+		<li class="sub-button"><label><input type="checkbox" value="DBC" class="expertiseCheckbox"> DBC</label></li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('interestOptions')">Interests</div>
+            <div class="sub-button-container">
+              <ul id="interestOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="Problem Solving" class="interestCheckbox"> Problem Solving</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Software Development" class="interestCheckbox"> Software Development</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Front-End Design" class="interestCheckbox"> Front-End Design</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Data Analysis" class="interestCheckbox"> Data Analysis</label></li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('passionOptions')">Passion</div>
+            <div class="sub-button-container">
+              <ul id="passionOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="coding" class="passionCheckbox"> Coding</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="problem solving" class="passionCheckbox"> Problem Solving</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="front-end Design" class="passionCheckbox"> Front-End Design</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="back-end development" class="passionCheckbox"> Back-End Development</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="user interface design" class="passionCheckbox"> User Interface Design</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="web development" class="passionCheckbox"> Web Development</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="data interpretation" class="passionCheckbox"> Data Interpretation</label></li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('skillsOptions')">Skills</div>
+            <div class="sub-button-container">
+              <ul id="skillsOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="Java" class="skillsCheckbox"> Java</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaEE" class="skillsCheckbox"> JavaEE</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Python" class="skillsCheckbox"> Python</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="DSA" class="skillsCheckbox"> DSA</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="OOPS" class="skillsCheckbox"> OOPS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="MySQL" class="skillsCheckbox"> MySQL</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Excel" class="skillsCheckbox"> Excel</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="Git" class="skillsCheckbox"> Git</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="HTML" class="skillsCheckbox"> HTML</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="CSS" class="skillsCheckbox"> CSS</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="skillsCheckbox"> JavaScript</label></li>
+		<li class="sub-button"><label><input type="checkbox" value="DBC" class="skillsCheckbox"> DBC</label></li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <div class="btn" onclick="toggleVisibility('jobRoleOptions')">Job Role</div>
+            <div class="sub-button-container">
+              <ul id="jobRoleOptions" class="options" >
+                <li class="sub-button"><label><input type="checkbox" value="software developer" class="jobRoleCheckbox"> Software Developer</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="front-end developer" class="jobRoleCheckbox"> Front-End Developer</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="full stack developer" class="jobRoleCheckbox"> Full Stack Developer</label></li>
+                <li class="sub-button"><label><input type="checkbox" value="data analyst" class="jobRoleCheckbox"> Data Analyst</label></li>
+            </ul>
+            </div>
+          </div>
+
+        </div>
+
     <div class="resume" id="resumeid" >
         <div class="top">
             <div class="left">
@@ -824,97 +916,6 @@ ul:last-child {
             </div>
         </div>
     </div>
-
-    <button id="edit-btn" onclick="opttoggleVisibility('edit-options')">Resume</button>
-
-    <div class="container" id="edit-options">
-
-        <div class="btn-container">
-          <div class="btn">
-                  <label id="pdfbtnlbl"><input type="checkbox" id="printToggle">&#8201;Download Pdf</label>
-          </div>
-        </div>
-  
-          <div class="btn-container">
-            <div class="btn" onclick="toggleVisibility('expertise-options')">Expertise</div>
-            <div class="sub-button-container">
-              <ul id="expertise-options" class="options" >
-                <li class="sub-button"><label><input type="checkbox" value="Java" class="expertiseCheckbox"> Java</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="JavaEE" class="expertiseCheckbox"> JavaEE</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Python" class="expertiseCheckbox"> Python</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="DSA" class="expertiseCheckbox"> DSA</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="OOPS" class="expertiseCheckbox"> OOPS</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="MySQL" class="expertiseCheckbox"> MySQL</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Excel" class="expertiseCheckbox"> Excel</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Git" class="expertiseCheckbox"> Git</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="HTML" class="expertiseCheckbox"> HTML</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="CSS" class="expertiseCheckbox"> CSS</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="expertiseCheckbox"> JavaScript</label></li>
-		<li class="sub-button"><label><input type="checkbox" value="DBC" class="expertiseCheckbox"> DBC</label></li>
-            </ul>
-            </div>
-          </div>
-  
-          <div class="btn-container">
-            <div class="btn" onclick="toggleVisibility('interestOptions')">Interests</div>
-            <div class="sub-button-container">
-              <ul id="interestOptions" class="options" >
-                <li class="sub-button"><label><input type="checkbox" value="Problem Solving" class="interestCheckbox"> Problem Solving</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Software Development" class="interestCheckbox"> Software Development</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Front-End Design" class="interestCheckbox"> Front-End Design</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Data Analysis" class="interestCheckbox"> Data Analysis</label></li>
-            </ul>
-            </div>
-          </div>
-  
-          <div class="btn-container">
-            <div class="btn" onclick="toggleVisibility('passionOptions')">Passion</div>
-            <div class="sub-button-container">
-              <ul id="passionOptions" class="options" >
-                <li class="sub-button"><label><input type="checkbox" value="coding" class="passionCheckbox"> Coding</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="problem solving" class="passionCheckbox"> Problem Solving</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="front-end Design" class="passionCheckbox"> Front-End Design</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="back-end development" class="passionCheckbox"> Back-End Development</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="user interface design" class="passionCheckbox"> User Interface Design</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="web development" class="passionCheckbox"> Web Development</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="data interpretation" class="passionCheckbox"> Data Interpretation</label></li>
-            </ul>
-            </div>
-          </div>
-  
-          <div class="btn-container">
-            <div class="btn" onclick="toggleVisibility('skillsOptions')">Skills</div>
-            <div class="sub-button-container">
-              <ul id="skillsOptions" class="options" >
-                <li class="sub-button"><label><input type="checkbox" value="Java" class="skillsCheckbox"> Java</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="JavaEE" class="skillsCheckbox"> JavaEE</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Python" class="skillsCheckbox"> Python</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="DSA" class="skillsCheckbox"> DSA</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="OOPS" class="skillsCheckbox"> OOPS</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="MySQL" class="skillsCheckbox"> MySQL</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Excel" class="skillsCheckbox"> Excel</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="Git" class="skillsCheckbox"> Git</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="HTML" class="skillsCheckbox"> HTML</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="CSS" class="skillsCheckbox"> CSS</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="JavaScript" class="skillsCheckbox"> JavaScript</label></li>
-		<li class="sub-button"><label><input type="checkbox" value="DBC" class="skillsCheckbox"> DBC</label></li>
-            </ul>
-            </div>
-          </div>
-  
-          <div class="btn-container">
-            <div class="btn" onclick="toggleVisibility('jobRoleOptions')">Job Role</div>
-            <div class="sub-button-container">
-              <ul id="jobRoleOptions" class="options" >
-                <li class="sub-button"><label><input type="checkbox" value="software developer" class="jobRoleCheckbox"> Software Developer</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="front-end developer" class="jobRoleCheckbox"> Front-End Developer</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="full stack developer" class="jobRoleCheckbox"> Full Stack Developer</label></li>
-                <li class="sub-button"><label><input type="checkbox" value="data analyst" class="jobRoleCheckbox"> Data Analyst</label></li>
-            </ul>
-            </div>
-          </div>
-      
-        </div>
 
     <script>
 const canvas = document.getElementById('network');
